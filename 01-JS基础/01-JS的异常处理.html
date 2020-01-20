@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<SCRIPT>
+    // console.log(num);
+    // console.log(10);
+    //1.异常处理
+    try {
+        console.log(num);
+    }catch (e) {
+        console.log(e)
+    }
+
+    //2.抛出与捕获异常
+    function devide(a,b) {
+        if (0===b){ //分子为零
+            //抛出异常
+            throw "分子不能为0"
+        }
+        return a/b
+    }
+
+    try {
+        console.log(devide(10,1))
+    }catch (e) {
+        console.log(e)
+    }finally {
+        console.log("finally执行")
+    }
+
+</SCRIPT>
+</body>
+</html>
