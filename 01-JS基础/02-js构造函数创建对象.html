@@ -5,7 +5,7 @@
     <title>构造函数创建对象</title>
 </head>
 <body>
-<script>
+<script type="text/html">
     //1.字面量的方式创建对象(缺点:复用性极差)
     var p1 = {
         name: "张三",
@@ -48,6 +48,42 @@
 
     const p = new Person(); // 通过new关键字来创建对象
 
+</script>
+<script type="text/html">
+    //1.如果不写,直接返回默认创建的新对象
+    //2.如果返回this,同样直接返回默认创建的新对象
+    //3.如果返回基本的数据类型,同样直接返回默认创建的新对象
+    //4.如果返回的是对象,则是返回我们创建的对象,而不是默认的对象
+    function Pseron(name,age) {
+        this.name=name;
+        this.age=age;
+    }
+    const p = new Pseron("zsl", 18);
+    console.log(p)
+
+
+
+</script>
+<script>
+    //构造函数的方式创建对象
+    function Dog(name,age,dogFriends) {
+        //对象的属性
+        this.name=name;
+        this.age=age;
+        this.dogFriends = dogFriends;
+
+        //对象的行为
+        this.eat=function (someThing) {
+            console.log(this.name+"吃"+someThing)
+        };
+        this.run=function (someWhere) {
+            console.log(this.name+"跑"+someWhere)
+        };
+
+        //产生对象
+        const smallDog = new Dog("小王八", 1);
+        console.log(smallDog.name,smallDog.age)
+    }
 </script>
 </body>
 </html>

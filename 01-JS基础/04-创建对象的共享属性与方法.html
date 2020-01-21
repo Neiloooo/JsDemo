@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象的共享属性与方法</title>
+</head>
+<body>
+<script>
+    //构造函数创建的时候的初始化
+    function Dog(option) {
+            //对象创建时候的初始化
+            this._init(option)
+    }
+
+    Dog.prototype={
+        _init: function (option) {
+            //初始化属性
+            this.name=option.name;
+            this.age=option.age;
+            this.dogFriends=option.dogFriends;
+        },
+        //
+        eat:function (something) {
+            console.log(this.name+"吃"+something);
+        },
+
+        run:function (someWhere) {
+            console.log(this.name+"跑"+someWhere)
+        }
+    };
+
+    //产生对象
+    const smallDog = new Dog({name: "消化", age: 1, dogFriends: ["球球", "嘎嘎"]});
+    const  bigDog = new Dog({name:"大花",age:11,dogFriends:["球球","嘎嘎嘎嘎"]});
+
+    //dog对象,是同一个对象,方法都是同一个方法,单例模式,对象只会创建一次
+    console.log(Dog.prototype);
+    console.log(smallDog.eat===bigDog.eat);
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>构造函数的传参优化</title>
+</head>
+<body>
+<script>
+    //构造函数的方式创建对象,传入json对象,再从json对象中获取
+    function Dog(option) {
+        //对象的属性
+        this.name=option.name;
+        this.age=option.age;
+        this.dogFriends = option.dogFriends;
+
+        //对象的行为
+        this.eat=function (someThing) {
+            console.log(this.name+"吃"+someThing)
+        };
+        this.run=function (someWhere) {
+            console.log(this.name+"跑"+someWhere)
+        };
+
+        //产生对象
+        const smallDog = new Dog({name:"消化",age:1,dogFriends:["球球,","嘎嘎"]});
+        console.log(smallDog.name,smallDog.age)
+    }
+</script>
+</body>
+</html>
